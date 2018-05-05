@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  netlifycms-example:
+    image: netlifycms-example
+    restart: always
+    build:
+      context: ./
+    ports:
+      - "3027:3000"
+      - "3028:3028"
+    env_file:
+      - .env  
