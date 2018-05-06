@@ -13,7 +13,8 @@
     "startprod": "pm2 start server.js",
     "stopprod": "pm2 stop all",
     "rebuild": "git pull origin master",
-    "deploy": "git pull origin master && rsync -av --delete --ignore-errors --exclude 'node_modules' ../susa.cloud/ admin@178.62.234.100:/srv/www/susa.cloud && ssh admin@178.62.234.100 'cd /srv/www/susa.cloud; docker-compose up -d --build'"
+    "deploy": "git pull origin master && rsync -av --delete --ignore-errors --exclude 'node_modules' ../susa.cloud/ admin@178.62.234.100:/srv/www/susa.cloud && ssh admin@178.62.234.100 'cd /srv/www/susa.cloud; docker-compose up -d --build'",
+    "test": "yarn batfish -- write-babelrc && jest"
   },
   "dependencies": {
     "@mapbox/assembly": "^0.21.3",
@@ -30,8 +31,10 @@
     "rss": "^1.2.2"
   },
   "devDependencies": {
+    "jest": "^22.4.3",
     "postcss-nested": "^3.0.0",
     "postcss-simple-vars-async": "^1.2.1",
-    "prettier": "^1.12.1"
+    "prettier": "^1.12.1",
+    "react-testing-library": "^3.0.1"
   }
 }

@@ -1,13 +1,17 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+import settingsData from "@mapbox/batfish/data/settings-data";
 
 class Footer extends Component {
   render() {
     return (
-      <footer className="footer">
-        Made by
-        <a href="https://www.minds.com/primozsusa" className="text-link">
-          Primož Suša
+      <footer className="footer" data-testid="footer">
+        By
+        <a
+          href={settingsData.site_author_url}
+          className="text-link"
+          target="_blank"
+        >
+          {settingsData.site_author}
         </a>
       </footer>
     );

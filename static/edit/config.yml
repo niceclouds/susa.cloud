@@ -27,14 +27,14 @@ collections:
       - {label: "Image", name: "author_image", widget: "image"}
       - {label: "Cover Image", name: "author_cover_image", widget: "image", required: false}
 
-  - name: "english_blog"
-    label: "English blog"
-    folder: "pages/blog"
+  - name: "english_stories"
+    label: "English story"
+    folder: "pages/stories"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     filter: {field: "language", value: "en"}
     fields:
-      - {label: "Layout", name: "layout", widget: "hidden", default: "blog-page"}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "story-page"}
       - {label: "Language", name: "language", widget: "select", options: [{ label: "English", value: "en" }, { label: "Slovenščina", value: "sl" }], default: "en"}
       - label: "Post Author"
         name: "author"
@@ -44,6 +44,7 @@ collections:
         valueField: "title"
         displayFields: ["title"]
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Sub title", name: "sub_title", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Content", name: "body", widget: "markdown"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
@@ -55,13 +56,13 @@ collections:
         fields:
           - {label: "Image", name: "image", widget: "image"}
 
-  - name: "slovenian_blog"
-    label: "Slovenski blog"
-    folder: "pages/blog"
+  - name: "slovenian_stories"
+    label: "Slovenske zgodbe"
+    folder: "pages/stories"
     create: true
     filter: {field: "language", value: "sl"}
     fields:
-      - {label: "Layout", name: "layout", widget: "hidden", default: "blog-page"}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "story-page"}
       - {label: "Jezik", name: "language", widget: "select", options: [{ label: "English", value: "en" }, { label: "Slovenščina", value: "sl" }], default: "sl"}
       - label: "Avtor objave"
         name: "author"
@@ -71,6 +72,7 @@ collections:
         valueField: "title"
         displayFields: ["title"]
       - {label: "Naslov", name: "title", widget: "string"}
+      - {label: "Pod naslov", name: "sub_title", widget: "string"}
       - {label: "Opis", name: "description", widget: "text"}
       - {label: "Vsebina", name: "body", widget: "markdown"}
       - {label: "Datum objave", name: "date", widget: "datetime"}

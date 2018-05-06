@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { prefixUrlAbsolute, prefixUrl } from '@mapbox/batfish/modules/prefix-url';
 import { withLocation } from '@mapbox/batfish/modules/with-location';
-import pkg from '../../../package';
+import settingsData from "@mapbox/batfish/data/settings-data";
 
 class Page extends React.Component {
   render() {
     const { props } = this;
-    const title = `${props.frontMatter.title} | ${pkg.name}`;
+    const title = `${props.frontMatter.title} | ${settingsData.site_title}`;
     return (
       <React.Fragment>
         <Helmet>
@@ -29,7 +29,7 @@ class Page extends React.Component {
               <meta property="og:description" content={props.frontMatter.description} />
             )
           }
-          <meta property="og:site_name" content={pkg.sitename} />
+          <meta property="og:site_name" content={settingsData.site_title} />
           <meta property="og:type" content="website" />
 
           {
@@ -46,8 +46,8 @@ class Page extends React.Component {
           <link rel="mask-icon" href={prefixUrl('/assets/safari-pinned-tab.svg')} color="#379bd4" />
           <link rel="shortcut icon" href={prefixUrl('/assets/favicon.ico')} />
 
-          <meta name="apple-mobile-web-app-title" content={pkg.sitename} />
-          <meta name="application-name" content={pkg.sitename} />
+          <meta name="apple-mobile-web-app-title" content={settingsData.site_title} />
+          <meta name="application-name" content={settingsData.site_title} />
           <meta name="msapplication-TileColor" content="#ffffff" />
           <meta name="msapplication-config" content={prefixUrl('/assets/browserconfig.xml')} />
           <meta name="theme-color" content="#ffffff" />

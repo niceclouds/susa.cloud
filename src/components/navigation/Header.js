@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import settingsData from "@mapbox/batfish/data/settings-data";
 import PropTypes from 'prop-types';
 
 class Header extends Component {
