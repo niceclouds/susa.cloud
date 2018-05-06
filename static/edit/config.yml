@@ -14,6 +14,15 @@ media_folder: "static/images/uploads"
 public_folder: "images/uploads"
 
 collections:
+  - name: "authors"
+    label: "Authors"
+    folder: "pages/author"
+    description: "Author descriptions"
+    create: true
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Description", name: "description", widget: "markdown"}
+      - {label: "Image", name: "image", widget: "image"}
   - name: "english_blog"
     label: "English blog"
     folder: "pages/blog"
@@ -22,7 +31,14 @@ collections:
     filter: {field: "language", value: "en"}
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "blog-page"}
-      - {label: "Language", name: "language", widget: "select", options: ["en", "sl"]}
+      - {label: "Language", name: "language", widget: "select", options: [{ label: "English", value: "en" }, { label: "Slovenščina", value: "sl" }], default: "en"}
+      - label: "Post Author"
+        name: "author"
+        widget: "relation"
+        collection: "authors"
+        searchFields: ["name"]
+        valueField: "name"
+        displayFields: ["name"]
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Content", name: "body", widget: "markdown"}
@@ -42,15 +58,23 @@ collections:
     filter: {field: "language", value: "sl"}
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "blog-page"}
-      - {label: "Jezik", name: "language", widget: "select", options: ["en", "sl"]}
+      - {label: "Jezik", name: "language", widget: "select", options: [{ label: "English", value: "en" }, { label: "Slovenščina", value: "sl" }], default: "sl"}
+      - label: "Avtor objave"
+        name: "author"
+        widget: "relation"
+        collection: "authors"
+        searchFields: ["name"]
+        valueField: "name"
+        displayFields: ["name"]
       - {label: "Naslov", name: "title", widget: "string"}
       - {label: "Opis", name: "description", widget: "text"}
       - {label: "Vsebina", name: "body", widget: "markdown"}
       - {label: "Datum objave", name: "date", widget: "datetime"}
       - {label: "Objavljeno", name: "published", widget: "boolean", default: true}
-      - {label: "Naslovna fotografija", name: "image", widget: "image", required: false, tagname: ""}
+      - {label: "Naslovna fotografija", name: "image", widget: "image", required: false}
       - label: "Galerija"
-        name: galleryImages
+        name: "galleryImages"
+        required: false
         widget: "list"
         fields:
           - {label: "Image", name: "image", widget: "image"}
@@ -90,21 +114,9 @@ collections:
         fields:
           - {label: "Site title", name: "site_title", widget: "string"}
           - {label: "Site author", name: "site_author", widget: "string"}
+          - {label: "Site author url", name: "site_author_url", widget: "string"}
           - label: "Post Settings"
             name: posts
             widget: "object"
             fields:
               - {label: "Number of posts on frontpage", name: front_limit, widget: number}
-      - name: "authors"
-        label: "Authors"
-        file: "pages/authors.json"
-        description: "Author descriptions"
-        fields:
-          - name: authors
-            label: Authors
-            label_singular: "Author"
-            widget: list
-            fields:
-              - {label: "Name", name: "name", widget: "string"}
-              - {label: "Description", name: "description", widget: "markdown"}
-              - {label: "Image", name: "image", widget: "image"}

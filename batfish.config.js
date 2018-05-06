@@ -9,7 +9,6 @@ module.exports = () => {
     pagesDirectory: path.join(__dirname, './pages'),
     stylesheets: [
       path.join(__dirname, './src/style/assembly/assembly.css'),
-      path.join(__dirname, './src/style/index.css'),
       path.join(__dirname, './src/style/base.css'),
       path.join(__dirname, './src/style/footer.css')
     ],
