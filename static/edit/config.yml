@@ -21,7 +21,7 @@ collections:
     create: true
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "author-page"}
-      - {label: "Name title", name: "title", widget: "string"}
+      - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Content", name: "body", widget: "markdown"}
       - {label: "Image", name: "author_image", widget: "image"}
