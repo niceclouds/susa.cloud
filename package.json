@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "batfish start",
-    "build": "batfish build",
+    "build": "batfish build && yarn build-rss",
     "build-assebly": "node scripts/buildAssebly.js",
     "build-rss": "node scripts/build-rss.js",
     "startprod": "pm2 start server.js",
