@@ -18,6 +18,7 @@
     ]
   },
   "footer": {
-    "headline": "By"
+    "headline": "By",
+    "body": "Some body text hello"
   }
 }
