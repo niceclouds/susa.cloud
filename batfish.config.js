@@ -15,6 +15,7 @@ module.exports = () => {
     stylesheets: [
       path.join(__dirname, './src/style/assembly/assembly.css'),
       path.join(__dirname, './src/style/base.css'),
+      path.join(__dirname, './src/style/header.css'),
       path.join(__dirname, './src/style/footer.css')
     ],
     postcssPlugins: defaultPlugins => {

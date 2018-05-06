@@ -20,5 +20,6 @@ const storiesData = data => {
 
 module.exports = {
   settingsData,
-  storiesData
+  storiesData,
+  authorsData
 };

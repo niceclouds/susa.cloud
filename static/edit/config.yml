@@ -10,7 +10,7 @@ slug:
   clean_accents: true
 
 # publish_mode: editorial_workflow
-media_folder: "static/images/uploads"
+media_folder: "pages/images/uploads"
 public_folder: "images/uploads"
 
 collections:

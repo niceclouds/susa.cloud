@@ -5,7 +5,7 @@ class Footer extends Component {
   render() {
     return (
       <footer className="footer" data-testid="footer">
-        By
+        {settingsData.footer.headline}
         <a
           href={settingsData.site_author_url}
           className="text-link"
@@ -13,6 +13,11 @@ class Footer extends Component {
         >
           {settingsData.site_author}
         </a>
+        {
+          settingsData.footer.body && (
+            <div className="footer-body">{settingsData.footer.body}</div>
+          )
+        }
       </footer>
     );
   }
