@@ -126,3 +126,19 @@ collections:
             widget: "object"
             fields:
               - {label: "Number of posts on frontpage", name: front_limit, widget: number}
+          - label: "Header navigation"
+            name: "header_navigation"
+            widget: "object"
+            fields:
+              - label: "Navigation links"
+                name: "navigation_links"
+                widget: "list"
+                fields:
+                  - {label: "Name", name: "name", widget: "string"}
+                  - {label: "Link", name: "link", widget: "string"}
+          - label: "Footer Settings"
+            name: footer
+            widget: "object"
+            fields:
+              - {label: "Headline", name: "headline", widget: "string"}
+              - {label: "Body", name: "body", widget: "text"}
