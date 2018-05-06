@@ -19,10 +19,14 @@ collections:
     folder: "pages/author"
     description: "Author descriptions"
     create: true
+    slug: "{{slug}}"
     fields:
-      - {label: "Name", name: "name", widget: "string"}
-      - {label: "Description", name: "description", widget: "markdown"}
-      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "author-page"}
+      - {label: "Name title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Content", name: "body", widget: "markdown"}
+      - {label: "Image", name: "author_image", widget: "image"}
+      - {label: "Cover Image", name: "author_cover_image", widget: "image", required: false}
   - name: "english_blog"
     label: "English blog"
     folder: "pages/blog"
@@ -36,9 +40,9 @@ collections:
         name: "author"
         widget: "relation"
         collection: "authors"
-        searchFields: ["name"]
-        valueField: "name"
-        displayFields: ["name"]
+        searchFields: ["title"]
+        valueField: "title"
+        displayFields: ["title"]
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Content", name: "body", widget: "markdown"}
@@ -63,9 +67,9 @@ collections:
         name: "author"
         widget: "relation"
         collection: "authors"
-        searchFields: ["name"]
-        valueField: "name"
-        displayFields: ["name"]
+        searchFields: ["title"]
+        valueField: "title"
+        displayFields: ["title"]
       - {label: "Naslov", name: "title", widget: "string"}
       - {label: "Opis", name: "description", widget: "text"}
       - {label: "Vsebina", name: "body", widget: "markdown"}
