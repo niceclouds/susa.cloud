@@ -1,4 +1,5 @@
 ---
+layout: about-page
 title: Primoz Susa
 description: Primoz Susa about page
 team:
