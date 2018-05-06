@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  netlifycms-example:
-    image: netlifycms-example
+  susa.cloud:
+    image: susa.cloud
     restart: always
     build:
       context: ./

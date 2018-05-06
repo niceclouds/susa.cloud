@@ -7,7 +7,7 @@ COPY . /app
 RUN apk --update add git
 
 ENV NPM_CONFIG_LOGLEVEL warn
-RUN npm install --production
+RUN npm install
 RUN npm run build
 
 RUN pm2 install vmarchaud/pm2-githook

@@ -1,24 +1,110 @@
+# https://www.netlifycms.org/docs/widgets/#select
 backend:
   name: github
-  repo: netlifycms-example/netlifycms-example
+  repo: niceclouds/susa.cloud
   branch: master
-  base_url: https://github.niceclouds.com
+  base_url: https://github.susa.cloud
+
 slug:
   encoding: "ascii"
   clean_accents: true
-publish_mode: editorial_workflow
-media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
+
+# publish_mode: editorial_workflow
+media_folder: "static/images/uploads"
 public_folder: "images/uploads"
+
 collections:
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Blog" # Used in the UI
-    folder: "pages/blog" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+  - name: "english_blog"
+    label: "English blog"
+    folder: "pages/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    filter: {field: "language", value: "en"}
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "blog-page"}
+      - {label: "Language", name: "language", widget: "select", options: ["en", "sl"]}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Content", name: "body", widget: "markdown"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "thumbnail", widget: "image"}
-      - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Published", name: "published", widget: "boolean", default: true}
+      - {label: "Cover Image", name: "image", widget: "image", required: false, tagname: ""}
+      - label: "Gallery"
+        name: galleryImages
+        widget: "list"
+        fields:
+          - {label: "Image", name: "image", widget: "image"}
+
+  - name: "slovenian_blog"
+    label: "Slovenski blog"
+    folder: "pages/blog"
+    create: true
+    filter: {field: "language", value: "sl"}
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "blog-page"}
+      - {label: "Jezik", name: "language", widget: "select", options: ["en", "sl"]}
+      - {label: "Naslov", name: "title", widget: "string"}
+      - {label: "Opis", name: "description", widget: "text"}
+      - {label: "Vsebina", name: "body", widget: "markdown"}
+      - {label: "Datum objave", name: "date", widget: "datetime"}
+      - {label: "Objavljeno", name: "published", widget: "boolean", default: true}
+      - {label: "Naslovna fotografija", name: "image", widget: "image", required: false, tagname: ""}
+      - label: "Galerija"
+        name: galleryImages
+        widget: "list"
+        fields:
+          - {label: "Image", name: "image", widget: "image"}
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "about"
+        label: "About Page"
+        description: "Site about page"
+        file: "pages/about.md"
+        extension: "md"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "about-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Content", name: "body", widget: "markdown"}
+          - {label: "Cover Image", name: "image", widget: "image", required: false}
+          - label: "Team"
+            name: team
+            widget: "list"
+            fields:
+              - {label: "Name", name: name, widget: string}
+              - {label: "Position", name: position, widget: string}
+              - {label: "Photo", name: photo, widget: image, required: false}
+
+  - name: "settings"
+    label: "Settings"
+    delete: false
+    files:
+      - name: "general"
+        label: "Site Settings"
+        file: "pages/settings.json"
+        description: "General Site Settings"
+        editor:
+          preview: false
+        fields:
+          - {label: "Site title", name: "site_title", widget: "string"}
+          - {label: "Site author", name: "site_author", widget: "string"}
+          - label: "Post Settings"
+            name: posts
+            widget: "object"
+            fields:
+              - {label: "Number of posts on frontpage", name: front_limit, widget: number}
+      - name: "authors"
+        label: "Authors"
+        file: "pages/authors.json"
+        description: "Author descriptions"
+        fields:
+          - name: authors
+            label: Authors
+            label_singular: "Author"
+            widget: list
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Description", name: "description", widget: "markdown"}
+              - {label: "Image", name: "image", widget: "image"}

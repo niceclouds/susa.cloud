@@ -1,0 +1,69 @@
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 400;
+    src: url('font/Roboto-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 300;
+    src: url('font/Roboto-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: italic;
+    src: url('font/Roboto-Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-weight: bold;
+    src: url('font/Roboto-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-weight: bold;
+    font-style: italic;
+    src: url('font/Roboto-BoldItalic.ttf') format('truetype');
+}
+
+.prose h1, .txt-h1 {
+    font-size: 30px;
+    line-height: 30px;
+}
+
+.prose h2 .txt-h2 {
+    font-size: 28px;
+    line-height: 28px;
+}
+
+.prose h3 .txt-h3 {
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.prose h1:not(.unprose) {
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 30px;
+    margin-bottom: 12px;
+    padding-top: 36px;
+}
+
+.prose h2:not(.unprose) {
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 28px;
+    margin-bottom: 12px;
+    padding-top: 24px;
+}
+
+.prose h3:not(.unprose) {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+    margin-bottom: 12px;
+    padding-top: 24px;
+}

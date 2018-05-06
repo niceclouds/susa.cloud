@@ -4,13 +4,11 @@ import Helmet from 'react-helmet';
 import { prefixUrlAbsolute, prefixUrl } from '@mapbox/batfish/modules/prefix-url';
 import { withLocation } from '@mapbox/batfish/modules/with-location';
 import pkg from '../../../package';
-import Header from '../navigation/Header';
-import Footer from '../navigation/Footer';
 
 class Page extends React.Component {
   render() {
     const { props } = this;
-    const title = `${props.frontMatter.title} | ${pkg.sitename}`;
+    const title = `${props.frontMatter.title} | ${pkg.name}`;
     return (
       <React.Fragment>
         <Helmet>
@@ -54,9 +52,7 @@ class Page extends React.Component {
           <meta name="msapplication-config" content={prefixUrl('/assets/browserconfig.xml')} />
           <meta name="theme-color" content="#ffffff" />
         </Helmet>
-        <Header />
         {props.children}
-        <Footer />
       </React.Fragment>
     );
   }
