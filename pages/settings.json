@@ -4,5 +4,20 @@
   "site_author_url": "https://github.com/primozs",
   "posts": {
     "front_limit": "6"
+  },
+  "header_navigation": {
+    "navigation_links": [
+      {
+        "name": "Stories",
+        "link": "/stories"
+      },
+      {
+        "name": "About",
+        "link": "/about"
+      }
+    ]
+  },
+  "footer": {
+    "headline": "By"
   }
 }
