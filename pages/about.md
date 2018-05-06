@@ -2,7 +2,7 @@
 layout: about-page
 title: Primoz Susa
 description: Primoz Susa about page.
-image: /images/uploads/1524032915.jpeg
+image: /images/uploads/susa-dolomiti-19-9.jpg
 team:
   - name: Primoz Susa
     photo: /images/uploads/20031741_10155334336761826_4209047668877634413_n.jpg
