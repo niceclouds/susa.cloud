@@ -1,0 +1,9 @@
+{
+  "name": "seeyou-dms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Chris Veness 2002-2016",
+  "license": "MIT"
+}
