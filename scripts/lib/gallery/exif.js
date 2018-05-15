@@ -22,7 +22,7 @@ const dec2frac = d => {
 const props = {
   Make: 'make',
   Model: 'model',
-  DateTimeOriginal: 'time',
+  DateTimeOriginal: 'date',
   ApertureValue: 'aperture',
   FocalLength: 'focalLength',
   ISOSpeedRatings: 'ISO',
@@ -32,8 +32,7 @@ const props = {
   GPSLongitudeRef: 'lngRef',
   GPSLongitude: 'lng',
   GPSAltitude: 'alt',
-  ImageDescription: 'desc',
-  CreateDate: 'createDate'
+  ImageDescription: 'desc'
 };
 
 const exif = imgpath => {
@@ -62,12 +61,19 @@ const exif = imgpath => {
               const key = props[prop];
               let value = allData[prop];
 
-              if (key === 'Shutter Speed') {
+              if (key === 'shutterSpeed') {
                 value = dec2frac(value);
               }
 
               if (typeof value === 'number') {
                 value = Math.round(value * 100) / 100;
+              }
+
+              if (key === 'date') {
+                let dateTimeArr = value.split(' ');
+                dateTimeArr[0] = dateTimeArr[0].split(':').join('/');
+                let dateTimeStr = dateTimeArr.join(' ');
+                value = new Date(dateTimeStr).getTime();
               }
               exifMap[key] = value;
             }
